@@ -3,6 +3,12 @@ extends CharacterBody2D
 # This sets the movement speed.
 const SPEED = 300.0
 
+var yen_count = 0
+
+func collect_yen():
+	yen_count += 1
+	print("Yen collected! Total Yen: ", yen_count)
+	
 # _physics_process runs every single frame of the game.
 func _physics_process(delta):
 	# Input.get_vector automatically checks the WASD or Arrow Keys 
@@ -14,3 +20,5 @@ func _physics_process(delta):
 	
 	# This built-in function actually moves the character and handles hitting walls
 	move_and_slide()
+	
+	
