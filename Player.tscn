@@ -2,11 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bss4mgihbqfdc" path="res://character_body_2d.gd" id="1_ij6vw"]
 [ext_resource type="Texture2D" uid="uid://budn0xh5m7q6m" path="res://Screenshot_2026-06-29_112527-removebg-preview.png" id="2_kpjcp"]
+[ext_resource type="Texture2D" uid="uid://chxopxjpmgb75" path="res://swordPreview2-removebg-preview.png" id="3_kne1u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44cfe"]
 size = Vector2(73, 116)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e80uo"]
+size = Vector2(16, 114)
+
 [node name="Player" type="CharacterBody2D" unique_id=2126586304]
+position = Vector2(900, 700)
 script = ExtResource("1_ij6vw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1458739384]
@@ -33,3 +38,13 @@ offset_top = 95.0
 offset_right = 152.0
 offset_bottom = 118.0
 text = "HP: 100/100"
+
+[node name="SwordHitbox" type="Area2D" parent="." unique_id=1350388924]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordHitbox" unique_id=843071307]
+position = Vector2(33, -23)
+shape = SubResource("RectangleShape2D_e80uo")
+
+[node name="SwordVisual" type="Sprite2D" parent="." unique_id=10798846]
+position = Vector2(41, -22)
+texture = ExtResource("3_kne1u")

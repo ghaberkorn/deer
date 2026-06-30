@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_piv6l"]
 size = Vector2(62, 83)
 
-[node name="EnemyDeer" type="CharacterBody2D" unique_id=532048700]
+[node name="EnemyDeer" type="CharacterBody2D" unique_id=532048700 groups=["enemy"]]
 script = ExtResource("1_1bdod")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=395444621]
