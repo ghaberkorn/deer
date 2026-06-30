@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bf3cx31x77vg3"]
+
+[ext_resource type="Script" uid="uid://das8rfs4843q2" path="res://enemy_deer.gd" id="1_1bdod"]
+[ext_resource type="Texture2D" uid="uid://dw348gunv4or7" path="res://Screenshot_2026-06-30_092838-removebg-preview.png" id="2_1bdod"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_piv6l"]
+size = Vector2(62, 83)
+
+[node name="EnemyDeer" type="CharacterBody2D" unique_id=532048700]
+script = ExtResource("1_1bdod")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=395444621]
+position = Vector2(-0.5, 0)
+scale = Vector2(0.9883721, 1)
+texture = ExtResource("2_1bdod")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=653227592]
+position = Vector2(-3, 4.5)
+shape = SubResource("RectangleShape2D_piv6l")

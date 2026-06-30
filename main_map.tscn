@@ -1,16 +1,19 @@
 [gd_scene format=3 uid="uid://hp6dlyrw6duv"]
 
+[ext_resource type="Texture2D" uid="uid://4q335xxs2p" path="res://icon.svg" id="1_5hk42"]
 [ext_resource type="PackedScene" uid="uid://d30ebo7uakvax" path="res://Player.tscn" id="1_dyl4d"]
 [ext_resource type="Script" uid="uid://bycxevj5detuq" path="res://coin_spawner.gd" id="2_km2bi"]
+[ext_resource type="PackedScene" uid="uid://bf3cx31x77vg3" path="res://enemy_deer.tscn" id="4_ob7o4"]
 
 [node name="MainMap" type="Node2D" unique_id=1624824412]
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=548075232]
-offset_left = -20611.0
-offset_top = -5180.0
-offset_right = 24044.0
-offset_bottom = 5689.0
-color = Color(0.5809583, 0.99999994, 0.43890026, 1)
+[node name="TextureRect" type="TextureRect" parent="." unique_id=609284291]
+offset_left = -18466.0
+offset_top = -15569.0
+offset_right = 19327.0
+offset_bottom = 16172.0
+texture = ExtResource("1_5hk42")
+stretch_mode = 1
 
 [node name="Player" parent="." unique_id=2126586304 instance=ExtResource("1_dyl4d")]
 
@@ -18,3 +21,5 @@ color = Color(0.5809583, 0.99999994, 0.43890026, 1)
 script = ExtResource("2_km2bi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=821986198]
+
+[node name="EnemyDeer" parent="." unique_id=532048700 instance=ExtResource("4_ob7o4")]

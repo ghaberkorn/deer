@@ -4,17 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://budn0xh5m7q6m" path="res://Screenshot_2026-06-29_112527-removebg-preview.png" id="2_kpjcp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44cfe"]
-size = Vector2(123, 123.5)
+size = Vector2(73, 116)
 
 [node name="Player" type="CharacterBody2D" unique_id=2126586304]
 script = ExtResource("1_ij6vw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1458739384]
-position = Vector2(128, 38)
+position = Vector2(128.5, 38)
+scale = Vector2(0.99230766, 1)
 texture = ExtResource("2_kpjcp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1803342288]
-position = Vector2(128.5, 39.25)
+position = Vector2(130.5, 43)
 shape = SubResource("RectangleShape2D_44cfe")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=849584901]
