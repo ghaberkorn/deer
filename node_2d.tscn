@@ -1,5 +1,15 @@
 [gd_scene format=3 uid="uid://4pqund3nukl7"]
 
+<<<<<<< HEAD
 [node name="Node2D" type="Node2D" unique_id=870387932]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1902389320]
+=======
+[node name="Node2D" type="Node2D" unique_id=434224142]
+
+[node name="Control" type="Control" parent="." unique_id=1456844172]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+>>>>>>> main
