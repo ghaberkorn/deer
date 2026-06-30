@@ -1,16 +1,19 @@
 [gd_scene format=3 uid="uid://dryban6bco1xv"]
 
+[ext_resource type="Script" uid="uid://bbm8tic5elpib" path="res://yen_coin.gd" id="1_7phww"]
 [ext_resource type="Texture2D" uid="uid://dwk6147k5ejcn" path="res://coin 2_0.png" id="1_htpkh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7phww"]
-radius = 18.681541
 
 [node name="YenCoin" type="Area2D" unique_id=1411725180]
+script = ExtResource("1_7phww")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1656854380]
 position = Vector2(170, 85)
 texture = ExtResource("1_htpkh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1911185686]
-position = Vector2(42, 85)
+position = Vector2(170, 85)
 shape = SubResource("CircleShape2D_7phww")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

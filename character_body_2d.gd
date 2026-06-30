@@ -1,24 +1,30 @@
 extends CharacterBody2D
 
-# This sets the movement speed.
 const SPEED = 300.0
 
-var yen_count = 0
+var yen = 0
+var hp = 100
+
+@onready var coin_label = $/root/MainMap/Player/CanvasLayer/CoinUI
+@onready var hp_label = $/root/MainMap/Player/CanvasLayer/HPUI
+
+
+func _ready():
+	hp_label.text = "HP: " + str(hp) + "/100"
+	coin_label.text = "Yen: " + str(yen)
+
+
+func _physics_process(delta):
+	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	velocity = direction * SPEED
+	move_and_slide()
 
 func collect_yen():
-	yen_count += 1
-	print("Yen collected! Total Yen: ", yen_count)
-	
-# _physics_process runs every single frame of the game.
-func _physics_process(delta):
-	# Input.get_vector automatically checks the WASD or Arrow Keys 
-	# and creates a 2D Vector (X and Y coordinates) based on what you press.
-	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	
-	# Multiply the direction by our speed to set the velocity
-	velocity = direction * SPEED
-	
-	# This built-in function actually moves the character and handles hitting walls
-	move_and_slide()
-	
-	
+	yen += 1
+	coin_label.text = "Yen: " + str(yen)
+
+func take_damage(damage_amount):
+	hp -= damage_amount
+	if hp < 0: hp = 0
+	hp_label.text = "HP: " + str(hp) + "/100"
+	if hp == 0: print("GAME OVER")
