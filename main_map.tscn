@@ -2,15 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://d30ebo7uakvax" path="res://Player.tscn" id="1_dyl4d"]
 [ext_resource type="Script" uid="uid://bycxevj5detuq" path="res://coin_spawner.gd" id="2_km2bi"]
+[ext_resource type="Texture2D" uid="uid://t5p2ol3as3ny" path="res://Grass 38 .png" id="3_5hk42"]
 
 [node name="MainMap" type="Node2D" unique_id=1624824412]
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=548075232]
-offset_left = -20611.0
-offset_top = -5180.0
-offset_right = 24044.0
-offset_bottom = 5689.0
-color = Color(0.5809583, 0.99999994, 0.43890026, 1)
 
 [node name="Player" parent="." unique_id=2126586304 instance=ExtResource("1_dyl4d")]
 
@@ -18,3 +12,10 @@ color = Color(0.5809583, 0.99999994, 0.43890026, 1)
 script = ExtResource("2_km2bi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=821986198]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=480307712]
+z_index = -2
+texture_repeat = 2
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("3_5hk42")
