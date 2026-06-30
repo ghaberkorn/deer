@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://bruynxw7r53hw" path="res://Grass 20 .png" id="4_1ns3a"]
 [ext_resource type="PackedScene" uid="uid://bf3cx31x77vg3" path="res://enemy_deer.tscn" id="4_ob7o4"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ob7o4"]
+size = Vector2(100, 2000)
+
 [node name="MainMap" type="Node2D" unique_id=1624824412]
 
 [node name="Player" parent="." unique_id=2126586304 instance=ExtResource("1_dyl4d")]
@@ -24,3 +27,33 @@ offset_right = 269435.0
 offset_bottom = 263121.0
 texture = ExtResource("4_1ns3a")
 stretch_mode = 1
+
+[node name="Wall_Top" type="StaticBody2D" parent="." unique_id=1088807475]
+position = Vector2(0, -1000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Top" unique_id=722239162]
+position = Vector2(0, -1000)
+shape = SubResource("RectangleShape2D_ob7o4")
+
+[node name="Wall_Bottom" type="StaticBody2D" parent="." unique_id=85015672]
+position = Vector2(0, 1000)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Bottom" unique_id=1252347826]
+position = Vector2(0, -1000)
+shape = SubResource("RectangleShape2D_ob7o4")
+
+[node name="Wall_Left" type="StaticBody2D" parent="." unique_id=1398494036]
+position = Vector2(0, 1000)
+constant_linear_velocity = Vector2(-1000, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Left" unique_id=157873998]
+position = Vector2(0, -1000)
+shape = SubResource("RectangleShape2D_ob7o4")
+
+[node name="Wall_Right" type="StaticBody2D" parent="." unique_id=1978898276]
+position = Vector2(0, 1000)
+constant_linear_velocity = Vector2(1000, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Right" unique_id=438489075]
+position = Vector2(0, -1000)
+shape = SubResource("RectangleShape2D_ob7o4")
