@@ -16,6 +16,9 @@ script = ExtResource("2_km2bi")
 [node name="TextureRect" type="TextureRect" parent="." unique_id=480307712]
 z_index = -2
 texture_repeat = 2
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -188960.0
+offset_top = -152567.0
+offset_right = 185717.0
+offset_bottom = 199779.0
 texture = ExtResource("3_5hk42")
+stretch_mode = 1
