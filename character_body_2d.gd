@@ -60,7 +60,7 @@ func trigger_game_over():
 	game_over_screen.show() 
 	
 	# Pause for 1.5 seconds
-	await get_tree().create_timer(1.5).timeout 
+	await get_tree().create_timer(2).timeout 
 	
 	# Force quit the game
 	get_tree().quit()
