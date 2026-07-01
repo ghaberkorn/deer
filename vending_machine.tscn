@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://neeq67u0r37y"]
+
+[ext_resource type="Script" uid="uid://dcsmgv7yo43u5" path="res://vending_machine.gd" id="1_r8xv5"]
+[ext_resource type="Texture2D" uid="uid://r2a6hrc4xai0" path="res://vending_machine1_by_tracy-removebg-preview (1).png" id="2_3xpst"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_saeyp"]
+size = Vector2(71, 115.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6xndp"]
+size = Vector2(138, 198)
+
+[node name="VendingMachine" type="StaticBody2D" unique_id=834640237]
+script = ExtResource("1_r8xv5")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1288781893]
+texture = ExtResource("2_3xpst")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1966662977]
+position = Vector2(-1.5, -2.25)
+shape = SubResource("RectangleShape2D_saeyp")
+
+[node name="ShopZone" type="Area2D" parent="." unique_id=1769040854]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShopZone" unique_id=864773667]
+position = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_6xndp")
+
+[node name="MenuLayer" type="CanvasLayer" parent="." unique_id=538567524]
+visible = false
+
+[node name="Panel" type="Panel" parent="MenuLayer" unique_id=897978139]
+offset_left = 196.0
+offset_top = 59.0
+offset_right = 1002.0
+offset_bottom = 609.0
+
+[node name="BtnHealth" type="Button" parent="MenuLayer/Panel" unique_id=1922965844]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 41.0
+offset_right = 396.0
+offset_bottom = 120.0
+text = "Health Drink(5 Yen)"
+
+[node name="BtnSpeed" type="Button" parent="MenuLayer/Panel" unique_id=1988066350]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 157.0
+offset_right = 395.0
+offset_bottom = 261.0
+text = "Speed Drink(10 Yen)"
+
+[connection signal="body_entered" from="ShopZone" to="." method="_on_shop_zone_body_entered"]
+[connection signal="body_exited" from="ShopZone" to="." method="_on_shop_zone_body_exited"]
+[connection signal="pressed" from="MenuLayer/Panel/BtnHealth" to="." method="_on_btn_health_pressed"]
+[connection signal="pressed" from="MenuLayer/Panel/BtnSpeed" to="." method="_on_btn_speed_pressed"]

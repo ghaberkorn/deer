@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
-const SPEED = 180.0
+var SPEED = 180 
+
+#in order to playtest change speed to 300 or 500, default for player should be 180
 
 var yen = 0
 var hp = 100
@@ -66,3 +68,24 @@ func trigger_game_over():
 	await get_tree().create_timer(2).timeout 
 	
 	get_tree().quit()
+
+# Checks if Kai has enough money, and spends it if he does
+func spend_yen(cost):
+	if yen >= cost:
+		yen -= cost
+		$CanvasLayer/CoinUI.text = "Yen: " + str(yen) # Updates your existing UI!
+		return true
+	return false
+
+# The Health Drink effect
+func heal(amount):
+	hp += amount
+	if hp > 100: 
+		hp = 100 # Prevents going over max health
+	$CanvasLayer/HPUI.text = "HP: " + str(hp) + "/100"
+
+# The Speed Drink effect
+func boost_speed(amount):
+	# Using SPEED here instead of const SPEED (Note: you may need to change 
+	# 'const SPEED = 180.0' at the top of your script to 'var SPEED = 180.0' so it can change!)
+	SPEED += amount

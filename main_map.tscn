@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://hp6dlyrw6duv"]
 
 [ext_resource type="PackedScene" uid="uid://d30ebo7uakvax" path="res://Player.tscn" id="1_dyl4d"]
+[ext_resource type="PackedScene" uid="uid://neeq67u0r37y" path="res://vending_machine.tscn" id="1_v4mvp"]
 [ext_resource type="Script" uid="uid://bycxevj5detuq" path="res://coin_spawner.gd" id="2_km2bi"]
 [ext_resource type="Texture2D" uid="uid://bruynxw7r53hw" path="res://Grass 20 .png" id="4_1ns3a"]
 [ext_resource type="PackedScene" uid="uid://bf3cx31x77vg3" path="res://enemy_deer.tscn" id="4_ob7o4"]
@@ -19,6 +20,9 @@ size = Vector2(50, 6000)
 size = Vector2(50, 6000)
 
 [node name="MainMap" type="Node2D" unique_id=1624824412]
+
+[node name="VendingMachine" parent="." unique_id=834640237 instance=ExtResource("1_v4mvp")]
+position = Vector2(2000, 5500)
 
 [node name="Player" parent="." unique_id=2126586304 instance=ExtResource("1_dyl4d")]
 position = Vector2(3100, 5500)
