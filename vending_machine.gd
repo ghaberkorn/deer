@@ -7,7 +7,7 @@ func _ready():
 
 # When Kai walks into the big collision box
 func _on_shop_zone_body_entered(body):
-	if body.name == "Player":
+	if body.name == "Player": 
 		current_player = body
 		$MenuLayer.visible = true # Show menu
 

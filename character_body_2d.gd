@@ -6,7 +6,7 @@ var SPEED = 180
 
 var yen = 0
 var hp = 100
-var is_game_over = false
+var is_game_over = false 
 
 @onready var coin_label = $CanvasLayer/CoinUI
 @onready var hp_label = $CanvasLayer/HPUI
