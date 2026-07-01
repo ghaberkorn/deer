@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var hp = 3 
 const SPEED = 150.0 
 var player = null
 var can_attack = true 
@@ -19,9 +20,14 @@ func _physics_process(delta):
 				velocity = Vector2.ZERO
 				
 				if can_attack:
-					collision_data.get_collider().take_damage(20)
+					collision_data.get_collider().take_damage(5)
 					can_attack = false
 					await get_tree().create_timer(1.0).timeout
 					can_attack = true
 				
 		move_and_slide()
+		
+func take_damage(damage_amount):
+	hp -= damage_amount
+	if hp <= 0:
+		queue_free() # Only delete the deer if HP hits 0

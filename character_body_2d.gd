@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 180.0
 
 var yen = 0
 var hp = 100
@@ -28,16 +28,22 @@ func _physics_process(delta):
 	
 	# --- THE SWORD ATTACK ---
 	# "ui_accept" is the Spacebar (or Enter) by default
+	# --- THE SWORD SWING & ATTACK ---
 	if Input.is_action_just_pressed("ui_accept"):
 		
-		# Get a list of every physics body currently touching the sword box
-		var things_hit = $SwordHitbox.get_overlapping_bodies()
+		# 1. THE ANIMATION (Swings the sword 90 degrees, then pulls it back)
+		var tween = create_tween()
+		tween.tween_property($WeaponPivot, "rotation", 1.5, 0.1) # Swing out fast
+		tween.tween_property($WeaponPivot, "rotation", 0.0, 0.15) # Pull back normal
 		
-		# Check them one by one
+		# 2. THE DAMAGE (Notice the new path to the hitbox!)
+		var things_hit = $WeaponPivot/SwordHitbox.get_overlapping_bodies()
+		
 		for body in things_hit:
-			# If the thing has the "enemy" tag we just made...
 			if body.is_in_group("enemy"):
-				body.queue_free() # Delete the deer instantly
+				# Instead of deleting them, we trigger the deer's new damage function
+				if body.has_method("take_damage"):
+					body.take_damage(1) # Deals 1 damage per swing
 
 func collect_yen():
 	yen += 1

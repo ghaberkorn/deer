@@ -47,12 +47,14 @@ offset_right = 794.0
 offset_bottom = 270.0
 texture = ExtResource("3_e80uo")
 
-[node name="SwordHitbox" type="Area2D" parent="." unique_id=1350388924]
+[node name="WeaponPivot" type="Node2D" parent="." unique_id=1039318021]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="SwordHitbox" unique_id=843071307]
-position = Vector2(33, -23)
-shape = SubResource("RectangleShape2D_e80uo")
-
-[node name="SwordVisual" type="Sprite2D" parent="." unique_id=10798846]
+[node name="SwordVisual" type="Sprite2D" parent="WeaponPivot" unique_id=10798846]
 position = Vector2(41, -22)
 texture = ExtResource("3_kne1u")
+
+[node name="SwordHitbox" type="Area2D" parent="WeaponPivot" unique_id=1350388924]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WeaponPivot/SwordHitbox" unique_id=843071307]
+position = Vector2(33, -23)
+shape = SubResource("RectangleShape2D_e80uo")
