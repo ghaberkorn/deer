@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
+
 var hp = 1
-const SPEED = 150.0 
+const SPEED = 220
 var player = null
 var can_attack = true 
 
@@ -30,4 +31,4 @@ func _physics_process(delta):
 func take_damage(damage_amount):
 	hp -= damage_amount
 	if hp <= 0:
-		queue_free() # Only delete the deer if HP hits 0
+		queue_free()
