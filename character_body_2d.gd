@@ -56,11 +56,7 @@ func trigger_game_over():
 	is_game_over = true
 	print("GAME OVER")
 	
-	# Show the PNG
 	game_over_screen.show() 
-	
-	# Pause for 1.5 seconds
 	await get_tree().create_timer(2).timeout 
 	
-	# Force quit the game
 	get_tree().quit()
