@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://budn0xh5m7q6m" path="res://Screenshot_2026-06-29_112527-removebg-preview.png" id="2_kpjcp"]
 [ext_resource type="Texture2D" uid="uid://bn5b3dfbhdwcr" path="res://Screenshot 2026-07-01 at 8.58.02 AM - Edited.png" id="3_e80uo"]
 [ext_resource type="Texture2D" uid="uid://chxopxjpmgb75" path="res://swordPreview2-removebg-preview.png" id="3_kne1u"]
+[ext_resource type="Texture2D" uid="uid://dixv7rwuf5edh" path="res://pixel-art-red-arrow-free-vector-removebg-preview.png" id="5_cxr5p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_44cfe"]
 size = Vector2(73, 116)
@@ -11,9 +12,17 @@ size = Vector2(73, 116)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e80uo"]
 size = Vector2(16, 114)
 
-[node name="Player" type="CharacterBody2D" unique_id=2126586304]
+[node name="Player" type="CharacterBody2D" unique_id=2126586304 groups=["player"]]
 position = Vector2(900, 700)
 script = ExtResource("1_ij6vw")
+
+[node name="CompassPivot" type="Node2D" parent="." unique_id=594581738]
+
+[node name="Sprite2D" type="Sprite2D" parent="CompassPivot" unique_id=1464145207]
+position = Vector2(100, -50)
+rotation = 1.5707964
+scale = Vector2(0.15000004, 0.14999998)
+texture = ExtResource("5_cxr5p")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1458739384]
 scale = Vector2(0.99230766, 0.9964539)

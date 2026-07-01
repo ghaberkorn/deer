@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var SPEED = 180 
+var SPEED = 180
 
 #in order to playtest change speed to 300 or 500, default for player should be 180
 
@@ -30,6 +30,13 @@ func _physics_process(delta):
 		$WeaponPivot.scale.x = -1
 		
 	move_and_slide()
+	
+	# --- THE COMPASS ARROW ---
+	var goals = get_tree().get_nodes_in_group("goal")
+	if goals.size() > 0:
+		# Calculates the exact mathematical angle between Kai and the Buddha
+		var target_pos = goals[0].global_position
+		$CompassPivot.rotation = global_position.direction_to(target_pos).angle()
 	
 	# --- THE SWORD SWING & ATTACK ---
 	if Input.is_action_just_pressed("ui_accept"):
