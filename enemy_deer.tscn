@@ -6,8 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_piv6l"]
 size = Vector2(62, 83)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bdod"]
+bg_color = Color(0, 0.7254902, 0, 1)
+
 [node name="EnemyDeer" type="CharacterBody2D" unique_id=532048700 groups=["enemy"]]
 script = ExtResource("1_1bdod")
+damage = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=395444621]
 scale = Vector2(0.9883721, 1)
@@ -16,3 +20,11 @@ texture = ExtResource("2_1bdod")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=653227592]
 position = Vector2(-3, 4.5)
 shape = SubResource("RectangleShape2D_piv6l")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=428786428]
+offset_left = -51.0
+offset_top = -67.0
+offset_right = 51.0
+offset_bottom = -36.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_1bdod")
+show_percentage = false

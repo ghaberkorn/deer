@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var SPEED = 250
+var SPEED = 180  
 
 #in order to playtest change speed to 300 or 500, default for player should be 180
 

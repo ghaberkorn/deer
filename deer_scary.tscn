@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cg38pfqtnr041"]
+
+[ext_resource type="Script" uid="uid://das8rfs4843q2" path="res://enemy_deer.gd" id="1_ui3hu"]
+[ext_resource type="Texture2D" uid="uid://c5tgbiv11fjgv" path="res://reindeer-scary-run-removebg-preview.png" id="2_ui3hu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_piv6l"]
+size = Vector2(55, 88.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ui3hu"]
+bg_color = Color(0, 0.7254902, 0, 1)
+
+[node name="Reindeer" type="CharacterBody2D" unique_id=532048700 groups=["enemy"]]
+script = ExtResource("1_ui3hu")
+max_hp = 6
+damage = 20
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=395444621]
+position = Vector2(90.55232, 67)
+scale = Vector2(3.7164085, 3.538462)
+texture = ExtResource("2_ui3hu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=653227592]
+position = Vector2(88.5, 69.75)
+shape = SubResource("RectangleShape2D_piv6l")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=2060008714]
+offset_left = 52.0
+offset_top = -3.0
+offset_right = 130.0
+offset_bottom = 24.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ui3hu")
+show_percentage = false

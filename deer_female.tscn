@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bcjs8divvdyc4"]
+
+[ext_resource type="Script" uid="uid://das8rfs4843q2" path="res://enemy_deer.gd" id="1_x61lk"]
+[ext_resource type="Texture2D" uid="uid://cnaqc7si4q5iu" path="res://deer-f-run-removebg-preview.png" id="2_x61lk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_piv6l"]
+size = Vector2(17.5, 29)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x61lk"]
+bg_color = Color(0, 0.7254902, 0, 1)
+
+[node name="FemaleDeer" type="CharacterBody2D" unique_id=532048700 groups=["enemy"]]
+script = ExtResource("1_x61lk")
+max_hp = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=395444621]
+position = Vector2(77.52907, 38)
+scale = Vector2(1.8941861, 1.2307692)
+texture = ExtResource("2_x61lk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=653227592]
+position = Vector2(77.25, 38.5)
+shape = SubResource("RectangleShape2D_piv6l")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=361476985]
+offset_left = 52.0
+offset_top = -3.0
+offset_right = 102.0
+offset_bottom = 24.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_x61lk")
+show_percentage = false
