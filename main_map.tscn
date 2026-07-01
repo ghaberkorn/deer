@@ -7,20 +7,21 @@
 [ext_resource type="Script" uid="uid://b00ra0pb63a0f" path="res://deerspawner.gd" id="5_1ns3a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ns3a"]
-size = Vector2(1600, 50)
+size = Vector2(6000, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v4mvp"]
-size = Vector2(1600, 50)
+size = Vector2(6000, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qu338"]
-size = Vector2(50, 1200)
+size = Vector2(50, 6000)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hio4h"]
-size = Vector2(50, 1200)
+size = Vector2(50, 6000)
 
 [node name="MainMap" type="Node2D" unique_id=1624824412]
 
 [node name="Player" parent="." unique_id=2126586304 instance=ExtResource("1_dyl4d")]
+position = Vector2(3100, 5500)
 
 [node name="CoinSpawner" type="Node2D" parent="." unique_id=507169230]
 script = ExtResource("2_km2bi")
@@ -48,19 +49,19 @@ autostart = true
 [node name="ArenaWalls" type="StaticBody2D" parent="." unique_id=1046886764]
 
 [node name="TopBoundary" type="CollisionShape2D" parent="ArenaWalls" unique_id=817227289]
-position = Vector2(900, 100)
+position = Vector2(3100, 100)
 shape = SubResource("RectangleShape2D_1ns3a")
 
 [node name="BottomBoundary" type="CollisionShape2D" parent="ArenaWalls" unique_id=1120033988]
-position = Vector2(900, 1300)
+position = Vector2(3100, 6100)
 shape = SubResource("RectangleShape2D_v4mvp")
 
 [node name="LeftBoundary" type="CollisionShape2D" parent="ArenaWalls" unique_id=1453724376]
-position = Vector2(100, 700)
+position = Vector2(100, 3100)
 shape = SubResource("RectangleShape2D_qu338")
 
 [node name="RightBoundary" type="CollisionShape2D" parent="ArenaWalls" unique_id=1565206897]
-position = Vector2(1700, 700)
+position = Vector2(6100, 3100)
 shape = SubResource("RectangleShape2D_hio4h")
 
 [connection signal="timeout" from="Deerspawner/Timer" to="Deerspawner" method="_on_timer_timeout"]
