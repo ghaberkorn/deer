@@ -16,34 +16,31 @@ func _ready():
 	game_over_screen.hide()
 
 func _physics_process(delta):
-	if is_game_over:
-		return
-		
 	var direction = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = direction * SPEED
+	
+	# --- AUTOMATIC SWORD FLIP -- -
+	# If walking right, hold sword in the right hand
+	if direction.x > 0:
+		$WeaponPivot.scale.x = 1
+	# If walking left, mirror everything to the left hand
+	elif direction.x < 0:
+		$WeaponPivot.scale.x = -1
+		
 	move_and_slide()
 	
-	# ... your existing movement code ...
-	move_and_slide()
-	
-	# --- THE SWORD ATTACK ---
-	# "ui_accept" is the Spacebar (or Enter) by default
 	# --- THE SWORD SWING & ATTACK ---
 	if Input.is_action_just_pressed("ui_accept"):
-		
-		# 1. THE ANIMATION (Swings the sword 90 degrees, then pulls it back)
 		var tween = create_tween()
-		tween.tween_property($WeaponPivot, "rotation", 1.5, 0.1) # Swing out fast
-		tween.tween_property($WeaponPivot, "rotation", 0.0, 0.15) # Pull back normal
+		tween.tween_property($WeaponPivot, "rotation", 1.5, 0.1) 
+		tween.tween_property($WeaponPivot, "rotation", 0.0, 0.15) 
 		
-		# 2. THE DAMAGE (Notice the new path to the hitbox!)
 		var things_hit = $WeaponPivot/SwordHitbox.get_overlapping_bodies()
 		
 		for body in things_hit:
 			if body.is_in_group("enemy"):
-				# Instead of deleting them, we trigger the deer's new damage function
 				if body.has_method("take_damage"):
-					body.take_damage(1) # Deals 1 damage per swing
+					body.take_damage(1)
 
 func collect_yen():
 	yen += 1
