@@ -6,11 +6,17 @@
 [ext_resource type="PackedScene" uid="uid://bf3cx31x77vg3" path="res://enemy_deer.tscn" id="4_ob7o4"]
 [ext_resource type="Script" uid="uid://b00ra0pb63a0f" path="res://deerspawner.gd" id="5_1ns3a"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ob7o4"]
-size = Vector2(50, 1200)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ns3a"]
 size = Vector2(1600, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4mvp"]
+size = Vector2(1600, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qu338"]
+size = Vector2(50, 1200)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hio4h"]
+size = Vector2(50, 1200)
 
 [node name="MainMap" type="Node2D" unique_id=1624824412]
 
@@ -32,41 +38,29 @@ offset_bottom = 263121.0
 texture = ExtResource("4_1ns3a")
 stretch_mode = 1
 
-[node name="Wall_Top" type="StaticBody2D" parent="." unique_id=1088807475]
-position = Vector2(900, 100)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Top" unique_id=722239162]
-position = Vector2(0, -1000)
-shape = SubResource("RectangleShape2D_ob7o4")
-
-[node name="Wall_Bottom" type="StaticBody2D" parent="." unique_id=85015672]
-position = Vector2(900, 1300)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Bottom" unique_id=1252347826]
-position = Vector2(0, -1000)
-shape = SubResource("RectangleShape2D_1ns3a")
-
-[node name="Wall_Left" type="StaticBody2D" parent="." unique_id=1398494036]
-position = Vector2(100, 700)
-constant_linear_velocity = Vector2(-1000, 0)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Left" unique_id=157873998]
-position = Vector2(0, -1000)
-shape = SubResource("RectangleShape2D_ob7o4")
-
-[node name="Wall_Right" type="StaticBody2D" parent="." unique_id=1978898276]
-position = Vector2(0, 1000)
-constant_linear_velocity = Vector2(1700, 700)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall_Right" unique_id=438489075]
-position = Vector2(0, -1000)
-shape = SubResource("RectangleShape2D_ob7o4")
-
 [node name="Deerspawner" type="Node2D" parent="." unique_id=1090393948]
 script = ExtResource("5_1ns3a")
 
 [node name="Timer" type="Timer" parent="Deerspawner" unique_id=2058030740]
 wait_time = 3.0
 autostart = true
+
+[node name="ArenaWalls" type="StaticBody2D" parent="." unique_id=1046886764]
+
+[node name="TopBoundary" type="CollisionShape2D" parent="ArenaWalls" unique_id=817227289]
+position = Vector2(900, 100)
+shape = SubResource("RectangleShape2D_1ns3a")
+
+[node name="BottomBoundary" type="CollisionShape2D" parent="ArenaWalls" unique_id=1120033988]
+position = Vector2(900, 1300)
+shape = SubResource("RectangleShape2D_v4mvp")
+
+[node name="LeftBoundary" type="CollisionShape2D" parent="ArenaWalls" unique_id=1453724376]
+position = Vector2(100, 700)
+shape = SubResource("RectangleShape2D_qu338")
+
+[node name="RightBoundary" type="CollisionShape2D" parent="ArenaWalls" unique_id=1565206897]
+position = Vector2(1700, 700)
+shape = SubResource("RectangleShape2D_hio4h")
 
 [connection signal="timeout" from="Deerspawner/Timer" to="Deerspawner" method="_on_timer_timeout"]
