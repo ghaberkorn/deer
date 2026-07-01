@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var hp = 3 
+var hp = 1
 const SPEED = 150.0 
 var player = null
 var can_attack = true 
