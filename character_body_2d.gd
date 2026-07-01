@@ -23,18 +23,21 @@ func _physics_process(delta):
 	velocity = direction * SPEED
 	move_and_slide()
 	
-	# THE SWORD ATTACK LOGIC
-	# "ui_accept" is the Spacebar or Enter key
+	# ... your existing movement code ...
+	move_and_slide()
+	
+	# --- THE SWORD ATTACK ---
+	# "ui_accept" is the Spacebar (or Enter) by default
 	if Input.is_action_just_pressed("ui_accept"):
 		
-		# Get everything currently touching the sword box
+		# Get a list of every physics body currently touching the sword box
 		var things_hit = $SwordHitbox.get_overlapping_bodies()
 		
-		# Check each thing one by one
+		# Check them one by one
 		for body in things_hit:
-			# If the thing has the "enemy" group tag...
+			# If the thing has the "enemy" tag we just made...
 			if body.is_in_group("enemy"):
-				body.queue_free() # Delete the deer!
+				body.queue_free() # Delete the deer instantly
 
 func collect_yen():
 	yen += 1
